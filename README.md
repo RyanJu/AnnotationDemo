@@ -1,0 +1,7 @@
+# AnnotationDemo
+自定义编译时注解，模拟ButterKnife功能,目前支持Activity的field的findId，method的click等注解
+
+主要思路：
+自定义注解Processor，实现对注解的采集和分析，并通过JavaPoet生成XX_ViewFinder.class类文件，放入build目录下当前Activity目录下，主要通过inject方法
+将需要findViewById和SetOnclickListener的element注入到inject方法中，最后通过Jugg.bind(xxActivity)方法将该xxActivity实例绑定到xxActivity_ViewFinder的
+inject方法中
